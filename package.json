@@ -1,0 +1,14 @@
+{
+  "name": "guardianfi-ai",
+  "version": "3.0.0",
+  "description": "GuardianFi AI — The Guardian Ledger Platform (Personal CFO + Invisible Shield)",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node -c server.js && node -c app.js",
+    "sync:excel": "python sync_excel.py --sync-all",
+    "watch:excel": "python auto_excel_sync.py"
+  },
+  "author": "GuardianFi AI Team",
+  "license": "ISC"
+}

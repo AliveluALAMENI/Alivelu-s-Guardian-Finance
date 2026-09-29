@@ -1,0 +1,47 @@
+{
+  "short_name": "GuardianFi",
+  "name": "GuardianFi AI — Autonomous Financial System",
+  "description": "Your Personal CFO. Your Financial Truth. Your Invisible Shield. High-performance progressive financial management platform.",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "192x192 512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "start_url": "/#dashboard",
+  "id": "/guardianfi_pwa",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#000000",
+  "theme_color": "#ff0080",
+  "scope": "/",
+  "categories": [
+    "finance",
+    "productivity",
+    "business"
+  ],
+  "shortcuts": [
+    {
+      "name": "Dashboard",
+      "url": "/#dashboard",
+      "description": "Real-time Financial Net Worth & Overview"
+    },
+    {
+      "name": "Guardian Ledger",
+      "url": "/#ledger",
+      "description": "Account Aggregator Connections & Expenses"
+    },
+    {
+      "name": "GuardianBot AI",
+      "url": "/#ai-help",
+      "description": "On-Device AI Financial Consultation"
+    },
+    {
+      "name": "Debt Destroyer",
+      "url": "/#debt",
+      "description": "Debt-to-Income & Capacity Planner"
+    }
+  ]
+}

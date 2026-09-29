@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="GuardianFi AI — The Guardian Ledger Platform. A dual-layer framework combining Account Aggregator transparency and Behavioral AI security for digital finance." />
+  <meta name="theme-color" content="#ff0080" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="GuardianFi" />
+  <title>GuardianFi AI — The Guardian Ledger Platform</title>
+  <link rel="manifest" href="manifest.json" />
+  <link rel="icon" type="image/svg+xml" href="icon.svg" />
+  <link rel="apple-touch-icon" href="icon.svg" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ==================== SIDEBAR NAVIGATION ==================== -->
+  <aside id="sidebar">
+    <!-- Populated dynamically by Guardian.buildSidebar() -->
+  </aside>
+
+  <!-- ==================== MAIN CONTENT AREA ==================== -->
+  <main id="main-content">
+    <!-- Automated Real-Time Stock Market Ticker Tape & Excel Status -->
+    <div id="stockTickerHeader" class="stock-ticker-header">
+      <!-- Populated dynamically by Guardian.renderStockTicker() -->
+    </div>
+
+    <!-- 1. Dashboard -->
+    <section id="dashboard" class="module-section active"></section>
+
+
+    <!-- 2. The Guardian Ledger (Unified Bank Connection + Expense Tracker) -->
+    <section id="ledger" class="module-section"></section>
+
+    <!-- 3. Unified Portfolio -->
+    <section id="portfolio" class="module-section"></section>
+
+    <!-- 4. Investment Simulator -->
+    <section id="invest" class="module-section"></section>
+
+    <!-- 5. Financial Academy & Masterclasses -->
+    <section id="learn" class="module-section"></section>
+
+    <!-- 6. Goal Planner -->
+    <section id="goals" class="module-section"></section>
+
+    <!-- 7. Debt Capacity & Debts (Combined Indicator + Liabilities) -->
+    <section id="debt" class="module-section"></section>
+
+    <!-- 8. Enterprise Business Suite (3-Statement Reports, DCF Models, P2P/O2P, Fixed Assets & Projects) -->
+    <section id="business" class="module-section"></section>
+
+    <!-- 9. GuardianBot AI Help -->
+    <section id="ai-help" class="module-section"></section>
+
+    <!-- ==================== IN-PAGE FOOTER DISCLAIMER (ALL TABS) ==================== -->
+    <footer class="app-disclaimer-footer">
+      <div class="disclaimer-card">
+        <div class="flex items-center justify-center gap-8 mb-4">
+          <span style="font-size:1.1rem">⚠️</span>
+          <strong style="color:#fbbf24;font-size:0.86rem">Academic Study Prototype Notice</strong>
+          <span class="badge badge-yellow" style="font-size:0.58rem">Non-Commercial</span>
+        </div>
+        <p style="font-size:0.76rem;color:var(--text-secondary);margin:0;line-height:1.4">
+          <strong>Disclaimer:</strong> This is only a prototype made for study purpose, not for commercial use. All financial calculations, valuation models, accounting ratios, and transactions are simulated for educational evaluation.
+        </p>
+      </div>
+    </footer>
+  </main>
+
+  <!-- ==================== FLOATING CHAT BUBBLE ==================== -->
+  <div id="aiFloatingBall" onclick="Guardian.toggleFloatingChat()" title="Ask GuardianBot AI">
+    🤖
+  </div>
+
+  <!-- ==================== FLOATING CHAT MODAL ==================== -->
+  <div id="aiChatModal">
+    <div class="card-header" style="padding:14px 16px;margin:0;background:rgba(255,255,255,0.02);border-bottom:1px solid var(--border-color);display:flex;justify-content:space-between;align-items:center;">
+      <div class="flex items-center gap-8">
+        <span style="font-size:1.2rem">🤖</span>
+        <strong style="font-size:0.95rem">GuardianBot AI</strong>
+        <span class="badge badge-pink" style="font-size:0.6rem">Personal & Corporate CFO</span>
+      </div>
+      <button class="btn btn-outline btn-sm" style="padding:2px 8px;font-size:0.8rem;border:none;color:var(--text-muted)" onclick="Guardian.toggleFloatingChat()">✕</button>
+    </div>
+    <div id="floatingChatMsgs" style="flex:1;overflow-y:auto;padding:14px;display:flex;flex-direction:column;gap:10px">
+      <div class="ai-tip" style="padding:10px">
+        <span class="tip-icon" style="font-size:1.2rem">🤖</span>
+        <div class="tip-text" style="font-size:0.82rem">
+          Hello! I'm <strong>GuardianBot</strong>, your Personal & Corporate AI CFO. Ask me to <em>"run DCF model"</em>, <em>"generate 3 statement report"</em>, <em>"check P2P 3-way match"</em>, <em>"what is my WACC?"</em>, or <em>"analyze my finances"</em>!
+        </div>
+      </div>
+    </div>
+    <div class="chat-quick-chips">
+      <button class="chip-btn" onclick="Guardian.sendCustomChat('run DCF valuation model')">🏢 DCF Model</button>
+      <button class="chip-btn" onclick="Guardian.sendCustomChat('show 3 statement financial report')">📑 3-Statements</button>
+      <button class="chip-btn" onclick="Guardian.sendCustomChat('check P2P 3-way match status')">🔄 P2P 3-Way Match</button>
+      <button class="chip-btn" onclick="Guardian.sendCustomChat('show fixed assets depreciation schedule')">🏗️ Asset Depr</button>
+      <button class="chip-btn" onclick="Guardian.sendCustomChat('analyze my finances')">📊 Health Check</button>
+      <button class="chip-btn" onclick="Guardian.sendCustomChat('What is my net worth?')">💎 Net Worth</button>
+      <button class="chip-btn" onclick="Guardian.sendCustomChat('Price of Reliance')">📈 Live Reliance</button>
+      <button class="chip-btn" onclick="Guardian.sendCustomChat('Sync excel')">⚡ Sync Excel</button>
+    </div>
+    <div style="display:flex;gap:8px;padding:12px;border-top:1px solid var(--border-color);background:var(--bg-secondary)">
+      <input type="text" id="floatingChatIn" class="form-input" style="flex:1" placeholder="Ask GuardianBot (Personal & Business CFO)..." onkeydown="if(event.key==='Enter')Guardian.sendFloatingChat()" />
+      <button class="btn btn-primary btn-sm" onclick="Guardian.sendFloatingChat()">Send</button>
+    </div>
+  </div>
+
+  <!-- ==================== CONNECT BANK MODAL ==================== -->
+  <div id="connectBankModal" onclick="if(event.target===this)Guardian.closeConnectBankModal()">
+    <div class="modal-content">
+      <div class="flex justify-between items-center mb-16">
+        <div class="flex items-center gap-8">
+          <span style="font-size:1.2rem">🏦</span>
+          <h3 style="font-size:1.1rem;font-weight:700">Connect Bank Account</h3>
+        </div>
+        <button class="btn btn-outline btn-sm" style="padding:2px 8px;border:none" onclick="Guardian.closeConnectBankModal()">✕</button>
+      </div>
+      <div id="connectBankModalBody"></div>
+    </div>
+  </div>
+
+  <!-- ==================== USER PROFILE & DATA MODAL ==================== -->
+  <div id="userModal" onclick="if(event.target===this)Guardian.closeUserModal()">
+    <div class="modal-content">
+      <div class="flex justify-between items-center mb-16">
+        <h3 style="font-size:1.1rem;font-weight:700">Account Profile & Settings</h3>
+        <button class="btn btn-outline btn-sm" style="padding:2px 8px;border:none" onclick="Guardian.closeUserModal()">✕</button>
+      </div>
+      <div id="userModalBody"></div>
+    </div>
+  </div>
+
+  <!-- ==================== AUTHENTICATION MODAL (LOGIN / REGISTER / FORGOT PASSWORD) ==================== -->
+  <div id="authModal" onclick="if(event.target===this)Guardian.closeAuthModal()">
+    <div class="modal-content auth-modal-content">
+      <div class="flex justify-between items-center mb-16">
+        <div class="flex items-center gap-8">
+          <div class="logo-badge" style="width:34px;height:34px;font-size:1rem">🛡️</div>
+          <div>
+            <h3 id="authModalTitle" style="font-size:1.15rem;font-weight:700;margin:0">Account Portal</h3>
+            <div class="fs-xs text-muted">User data base.xlsx Connected</div>
+          </div>
+        </div>
+        <button class="btn btn-outline btn-sm" style="padding:2px 8px;border:none" onclick="Guardian.closeAuthModal()">✕</button>
+      </div>
+
+      <!-- Auth Tabs -->
+      <div class="tab-nav mb-16" id="authTabsNav" style="display:flex;gap:4px">
+        <button id="authTabBtn_login" class="tab-btn active" style="flex:1" onclick="Guardian.switchAuthTab('login')">🔑 Log In</button>
+        <button id="authTabBtn_register" class="tab-btn" style="flex:1" onclick="Guardian.switchAuthTab('register')">📝 Register</button>
+      </div>
+
+      <div id="authModalBody"></div>
+    </div>
+  </div>
+
+  <!-- ==================== PROTOTYPE DISCLAIMER BAR (ALL TABS) ==================== -->
+  <footer id="appDisclaimerBar" class="app-disclaimer-bar" role="contentinfo">
+    <div class="disclaimer-content">
+      <span class="disclaimer-icon">⚠️</span>
+      <span class="disclaimer-text"><strong>Disclaimer:</strong> This is only a prototype made for study purpose, not for commercial use.</span>
+      <span class="disclaimer-badge">Academic Prototype</span>
+    </div>
+  </footer>
+
+  <!-- ==================== APPLICATION SCRIPT ==================== -->
+  <script src="app.js"></script>
+</body>
+</html>
